@@ -104,15 +104,6 @@ class MovieViewSetTest(TestCase):
         self.assertIn('The Social Network', names)
     
 
-
-
-    # def test_sort_movies_by_imdb(self):
-    #     url = reverse('movie-list')  
-    #     response = self.client.get(url, {'ordering': 'imdb'})
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(len(response.data), 3) 
-    #     self.assertEqual(response.data[0]['name'], 'The Deep')  
-
     def test_sort_movies_by_imdb(self):
         url = reverse('movie-list')
         response = self.client.get(url, {'ordering': 'imdb'})  # Ascending order by default
