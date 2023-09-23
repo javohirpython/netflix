@@ -25,16 +25,8 @@ jobs:
 
       - name: Deploy Your Django Application
         run: |
-          # Replace the following commands with your deployment process.
-          # For example, you might use a deployment script or a tool like Fabric or Ansible.
-          
-          # Example command for running database migrations:
-          python manage.py migrate
-          
-          # Example command for collecting static files:
-          python manage.py collectstatic --noinput
-          
-          # Example command for starting your Django application (e.g., using Gunicorn):
-          gunicorn netflix.wsgi:application
+            python manage.py migrate
+            python manage.py collectstatic --noinput
+            gunicorn netflix.wsgi:application
 
       # Add any additional steps for notifications or post-deployment tasks here.
