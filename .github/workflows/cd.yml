@@ -1,0 +1,40 @@
+name: Django CD
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+       DJANGO_SETTINGS_MODULE: netflix.settings
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.9  # Choose your desired Python version
+
+      # Add any additional steps needed for your deployment process here.
+      # This can include steps for database migrations, collecting static files,
+      # and deploying your application to a server or platform.
+
+      - name: Deploy Your Django Application
+        run: |
+          # Replace the following commands with your deployment process.
+          # For example, you might use a deployment script or a tool like Fabric or Ansible.
+          
+          # Example command for running database migrations:
+          python manage.py migrate
+          
+          # Example command for collecting static files:
+          python manage.py collectstatic --noinput
+          
+          # Example command for starting your Django application (e.g., using Gunicorn):
+          gunicorn netflix.wsgi:application
+
+      # Add any additional steps for notifications or post-deployment tasks here.
